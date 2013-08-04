@@ -1,0 +1,86 @@
+#lecteur-audio
+{
+	position:relative;
+}
+#controller-player
+{
+	position:relative;
+	height:40px;
+}
+.cursor-pointer
+{
+	cursor: pointer;
+}
+#btn-back
+{
+	position:absolute;
+	background: url('../img/lect-btn-back.png');
+	background-repeat: no-repeat;
+	width:30px;
+	height:31px;
+	opacity:0.8;
+}
+#btn-back:hover
+{
+	opacity:1;
+}
+#btn-play
+{
+	position:absolute;
+	top:-1px;
+	left:51px;
+	background: url('../img/lect-btn-play.png');
+	background-repeat: no-repeat;
+	width:34px;
+	height:33px;
+	opacity:0.8;
+}
+#btn-play:hover
+{
+	opacity:1;
+}
+#btn-pause
+{
+	position:absolute;
+	top:-1px;
+	left:51px;
+	background: url('../img/lect-btn-pause.png');
+	background-repeat: no-repeat;
+	width:34px;
+	height:33px;
+	display:none;
+	opacity:0.8;
+}
+#btn-pause:hover
+{
+	opacity:1;
+}
+#btn-stop
+{
+	position:absolute;
+	top:-1px;
+	left:111px;
+	background: url('../img/lect-btn-stop.png');
+	background-repeat: no-repeat;
+	width:34px;
+	height:33px;
+	opacity:0.8;
+}
+#btn-stop:hover
+{
+	opacity:1;
+}
+#btn-next
+{
+	position:absolute;
+	left:165px;
+	background: url('../img/lect-btn-next.png');
+	background-repeat: no-repeat;
+	width:30px;
+	height:31px;
+	opacity:0.8;
+}
+#btn-next:hover
+{
+	opacity:1;
+}

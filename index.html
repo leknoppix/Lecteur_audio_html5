@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <title>Titre de la page</title>
+  <link rel="stylesheet" href="style/lecteur.css">
+  <!--[if lt IE 9]>
+  <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+  <![endif]-->
+</head>
+<body>
+				<h2>Mon lecteur audio</h2>
+				<img src="img/aperculecteur.png" />
+				<div id="lecteur-audio">
+					<audio class="audio" id="audio1" preload="auto">
+						<source src="audio/mp3/lelongdularge.mp3" type="audio/mpeg">
+						<source src="audio/ogg/lelongdularge.ogg" type="audio/ogg">
+						<source src="audio/wav/lelongdularge.wav" type="audio/wav">
+					</audio>
+					<audio class="audio" id="audio2" preload="auto">
+						<source src="audio/mp3/commedesenfants.mp3" type="audio/mpeg">
+						<source src="audio/ogg/commedesenfants.ogg" type="audio/ogg">
+						<source src="audio/wav/commedesenfants.wav" type="audio/wav">
+					</audio>
+				</div>
+				<div id="controller-player">
+					<div class="cursor-pointer" id="btn-back"></div>
+					<div class="cursor-pointer" id="btn-play"></div>
+					<div class="cursor-pointer" id="btn-pause"></div>
+					<div class="cursor-pointer" id="btn-stop"></div>
+					<div class="cursor-pointer" id="btn-next"></div>
+				</div>
+				<div class="clearfix"></div>
+</body>
+<script type="text/javascript" src="js/jquery.js"></script>
+<script src="js/lecteur.js"></script>
+<script src="js/script.js"></script>
+</html>
