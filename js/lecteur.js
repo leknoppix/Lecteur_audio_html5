@@ -6,7 +6,8 @@
 		    pause     	: 	'#btn-pause',                  
 		    stop 		: 	'#btn-stop',                
 		    next   		: 	'#btn-next',             
-		    back     	: 	'#btn-back'
+		    back     	: 	'#btn-back',
+            pochette    :   'img.pochette', 
 	}
 	$.audio = function(el,options) {
 
@@ -19,6 +20,7 @@
     	
         this.each( function() {
         	var self = $(this);
+            $(options.pochette).hide();
             //bouton play
             init();
         });
@@ -51,6 +53,7 @@
         		current=0;
         	}
             lecteuron();
+            changepochette();
         }
         function reculerlecteur()
         {
@@ -63,6 +66,13 @@
         	}
             lecteuron();
         }
+        function changepochette()
+        {
+            $('#photo-pochette').attr('src',$("."+audio[current]).attr('src'));
+            $('#titre_album').html($("."+audio[current]).attr('alt'));
+            $('#song').html($("."+audio[current]).attr('title'));
+            //alert( $("."+audio[current]).attr('src') );
+        }
         function init()
         {
         	$('.audio').each(function()
@@ -70,6 +80,7 @@
 	        	audio[maxcurrent]=$(this).attr('id');
 	        	maxcurrent++;
         	});
+            changepochette();
         	$(options.play).on('click',function(e)
         	{
         		e.preventDefault();
