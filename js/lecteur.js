@@ -52,8 +52,7 @@
                     orientation: "horizontal",
                     range: "min",
                     max: 100,
-                    value:50,
-                    value: percent,
+                    value: 0,
             });
         }
         function lecteurpause()
