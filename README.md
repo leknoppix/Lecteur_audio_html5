@@ -11,19 +11,20 @@ L'idée est simple. Concevoir un plugin jquery, qui permette de gérer la lectur
 Utilisation:
 -----------------
 Structure HTML:
+<code>
 	<div id="lecteur-audio">
 		<audio class="audio" id="audio1" preload="auto">
-			<source src="audio/mp3/DJ_Spooky_-_Check_Your_Math.mp3" type="audio/mpeg">
-			<source src="audio/ogg/DJ_Spooky_-_Check_Your_Math.ogg" type="audio/ogg">
-			<source src="audio/wav/DJ_Spooky_-_Check_Your_Math.wav" type="audio/wav">
+			<source src="DJ_Spooky_-_Check_Your_Math.mp3" type="audio/mpeg">
+			<source src="DJ_Spooky_-_Check_Your_Math.ogg" type="audio/ogg">
+			<source src="DJ_Spooky_-_Check_Your_Math.wav" type="audio/wav">
 		</audio>
-		<img src="audio/pochette/DJ_Spooky_-_Check_Your_Math.jpg" alt="Titre de l'album" title="Titre du son" class="pochette audio1" />
+		<img src="DJ_Spooky_-_Check_Your_Math.jpg" alt="Titre de l'album" title="Titre du son" class="pochette audio1" />
 		<audio class="audio" id="audio2" preload="auto">
-			<source src="audio/mp3/Lauren_Piper_-_Ryan.mp3" type="audio/mpeg">
-			<source src="audio/ogg/Lauren_Piper_-_Ryan.ogg" type="audio/ogg">
-			<source src="audio/wav/Lauren_Piper_-_Ryan.wav" type="audio/wav">
+			<source src="Lauren_Piper_-_Ryan.mp3" type="audio/mpeg">
+			<source src="Lauren_Piper_-_Ryan.ogg" type="audio/ogg">
+			<source src="Lauren_Piper_-_Ryan.wav" type="audio/wav">
 		</audio>
-		<img src="audio/pochette/Lauren_Piper_-_Ryan.jpg" alt="Titre de l'album 2" title="Titre du son 2" class="pochette audio2" />
+		<img src="Lauren_Piper_-_Ryan.jpg" alt="Titre de l'album 2" title="Titre du son 2" class="pochette audio2" />
 	</div>
 	<img id="photo-pochette" src="http://dummyimage.com/75x75/" />
 	<span id="titre_album"></span>
@@ -40,10 +41,13 @@ Structure HTML:
 		<div class="cursor-pointer" id="btn-stop"></div>
 		<div class="cursor-pointer" id="btn-next"></div>
 	</div>
+</code>
 Appel du plugin:
+<code>
 	(function($) {
 	//liste de mes fonctions liés à jquery
 		$(document).ready(function(){
 			$("#lecteur-audio").audio();
 		});
 	})(jQuery);
+</code>
