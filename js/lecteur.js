@@ -40,7 +40,7 @@
         	document.getElementById(audio[current]).play();
             $("#valeurtimeline").val(currentTimeActif);
         }
-        avancement = function
+        avancement = function()
         {
             var player=document.getElementById(audio[current]);
             var duration = player.duration;    // Durée totale
