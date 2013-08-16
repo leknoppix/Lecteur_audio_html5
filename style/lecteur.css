@@ -1,3 +1,7 @@
+body
+{
+background-color: blue;
+}
 #lecteur-audio
 {
 	position:relative;
@@ -88,4 +92,35 @@ img#photo-pochette
 {
 	width: 75px;
 	height: 75px;
+}
+/*barre de progression*/
+.ui-slider {
+    position: relative;
+    text-align: left;
+    height: 20px;
+    display: block;
+}
+.ui-slider-horizontal
+{
+	background:url('../img/ui-slider-horizontal.png');
+	height: 9px;
+	width:195px;
+	z-index:1;
+}
+.ui-slider-horizontal a.ui-slider-handle
+{
+	position: absolute;
+	margin-left:-5px;
+	top:0px;
+	background:url('../img/ui-slider-handle.png');
+	height:10px;
+	width:10px;
+	z-index:3;
+}
+.ui-slider-range
+{
+	position: absolute;
+	background: url('../img/ui-slider-range.png');
+	height:7px;
+	z-index:2;
 }

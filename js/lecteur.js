@@ -18,7 +18,7 @@
     	var current = 0;
     	var maxcurrent = 0;
     	var audio = new Array();
-    	
+    	var percent;
         this.each( function() {
         	var self = $(this);
             $(options.pochette).hide();
@@ -39,6 +39,23 @@
         	$(options.pause).show();
         	document.getElementById(audio[current]).play();
             $("#valeurtimeline").val(currentTimeActif);
+        }
+        avancement = function
+        {
+            var player=document.getElementById(audio[current]);
+            var duration = player.duration;    // Durée totale
+            var time     = player.currentTime; // Temps écoulé
+            var fraction = time / duration;
+            percent  = Math.ceil(fraction * 100);
+        }
+        timeline = function()
+        {
+            $( ".avancement" ).slider({
+                    orientation: "horizontal",
+                    range: "min",
+                    max: 100,
+                    value: 0,
+            });
         }
         lecteurpause = function()
         {
@@ -93,6 +110,7 @@
 	        	maxcurrent++;
         	});
             changepochette();
+            timeline(),
         	$(options.play).on('click',function(e)
         	{
         		e.preventDefault();
