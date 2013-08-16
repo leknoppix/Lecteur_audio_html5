@@ -11,6 +11,7 @@ L'idée est simple. Concevoir un plugin jquery, qui permette de gérer la lectur
 Utilisation:
 -----------------
 Structure HTML:
+
 		<div id="lecteur-audio">
 		<audio class="audio" id="audio1" preload="auto">
 		<source src="DJ_Spooky_-_Check_Your_Math.mp3" type="audio/mpeg">
@@ -40,10 +41,13 @@ Structure HTML:
 		<div class="cursor-pointer" id="btn-stop"></div>
 		<div class="cursor-pointer" id="btn-next"></div>
 		</div>
+
 Appel du plugin:
+
 		(function($) {
 		//liste de mes fonctions liés à jquery
 			$(document).ready(function(){
 				$("#lecteur-audio").audio();
 			});
 		})(jQuery);
+		
