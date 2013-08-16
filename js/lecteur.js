@@ -110,7 +110,6 @@
 	        	maxcurrent++;
         	});
             changepochette();
-            timeline(),
         	$(options.play).on('click',function(e)
         	{
         		e.preventDefault();
