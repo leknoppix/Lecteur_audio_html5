@@ -26,6 +26,7 @@
         });
         lecteurarret = function()
         {
+            inittimeline();
         	$(options.play).show();
         	$(options.pause).hide();
         	document.getElementById(audio[current]).pause();
@@ -33,22 +34,28 @@
         }
         lecteuron = function()
         {
-            currentTimeActif=document.getElementById(audio[current]).currentTime;
+            inittimeline();
             changepochette();
         	$(options.play).hide();
         	$(options.pause).show();
         	document.getElementById(audio[current]).play();
-            $("#valeurtimeline").val(currentTimeActif);
+            document.getElementById(audio[current]).addEventListener("timeupdate", updateProgress, false);
         }
-        avancement = function()
+        updateProgress = function()
         {
             var player=document.getElementById(audio[current]);
             var duration = player.duration;    // Durée totale
             var time     = player.currentTime; // Temps écoulé
             var fraction = time / duration;
             percent  = Math.ceil(fraction * 100);
+            $( ".avancement" ).slider({
+                    orientation: "horizontal",
+                    range: "min",
+                    max: 100,
+                    value: percent,
+            });
         }
-        timeline = function()
+        function inittimeline()
         {
             $( ".avancement" ).slider({
                     orientation: "horizontal",
@@ -74,8 +81,12 @@
         	}
             if(options.autoplay==true)
             {
+                $(options.play).hide();
+                $(options.pause).show();
                 lecteuron();
             }else{
+                $(options.play).show();
+                $(options.pause).hide();
                 changepochette();
             }
         }
@@ -90,8 +101,12 @@
         	}
             if(options.autoplay==true)
             {
+                $(options.play).hide();
+                $(options.pause).show();
                 lecteuron();
             }else{
+                $(options.play).show();
+                $(options.pause).hide();
                 changepochette();
             }
 
@@ -110,6 +125,7 @@
 	        	maxcurrent++;
         	});
             changepochette();
+            inittimeline();
         	$(options.play).on('click',function(e)
         	{
         		e.preventDefault();

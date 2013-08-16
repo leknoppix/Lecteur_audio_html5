@@ -30,7 +30,6 @@ Structure HTML:
 		<img id="photo-pochette" src="http://dummyimage.com/75x75/" />
 		<span id="titre_album"></span>
 		<span id="song"></span>
-		<input type="text" name="valeurtimeline" id="valeurtimeline" />
 		<br />
 		<br />
 		<div class="avancement">
