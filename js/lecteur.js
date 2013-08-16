@@ -8,6 +8,7 @@
 		    next   		: 	'#btn-next',             
 		    back     	: 	'#btn-back',
             pochette    :   'img.pochette', 
+            autoplay    :   false, 
 	}
 	$.audio = function(el,options) {
 
@@ -21,29 +22,31 @@
         this.each( function() {
         	var self = $(this);
             $(options.pochette).hide();
-            //bouton play
             init();
         });
-        function lecteurarret()
+        lecteurarret = function()
         {
         	$(options.play).show();
         	$(options.pause).hide();
         	document.getElementById(audio[current]).pause();
   			document.getElementById(audio[current]).currentTime=0;
         }
-        function lecteuron()
+        lecteuron = function()
         {
+            currentTimeActif=document.getElementById(audio[current]).currentTime;
+            changepochette();
         	$(options.play).hide();
         	$(options.pause).show();
         	document.getElementById(audio[current]).play();
+            $("#valeurtimeline").val(currentTimeActif);
         }
-        function lecteurpause()
+        lecteurpause = function()
         {
         	$(options.play).show();
         	$(options.pause).hide();
         	document.getElementById(audio[current]).pause();
         }
-        function avancementlecteur()
+        avancementlecteur = function()
         {
             document.getElementById(audio[current]).pause();
         	document.getElementById(audio[current]).currentTime=0;
@@ -52,10 +55,14 @@
         	{
         		current=0;
         	}
-            lecteuron();
-            changepochette();
+            if(options.autoplay==true)
+            {
+                lecteuron();
+            }else{
+                changepochette();
+            }
         }
-        function reculerlecteur()
+        reculerlecteur = function()
         {
             document.getElementById(audio[current]).pause();
         	document.getElementById(audio[current]).currentTime=0;
@@ -64,14 +71,19 @@
         	{
         		current=(maxcurrent-1);
         	}
-            lecteuron();
+            if(options.autoplay==true)
+            {
+                lecteuron();
+            }else{
+                changepochette();
+            }
+
         }
         function changepochette()
         {
             $('#photo-pochette').attr('src',$("."+audio[current]).attr('src'));
             $('#titre_album').html($("."+audio[current]).attr('alt'));
             $('#song').html($("."+audio[current]).attr('title'));
-            //alert( $("."+audio[current]).attr('src') );
         }
         function init()
         {
@@ -109,5 +121,4 @@
         }
 
     }
-
 }(jQuery));
