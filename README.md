@@ -6,7 +6,8 @@ En savoir plus sur le projet:
 -----------------
 
 Ayant fait pas mal de recherche sur internet, je n'ai pas trouvé de solution qui corresponde à 100% à mon désir. Je cherchais un système à héberger soit même, simple et surtout 100% personnalisable.
-L'idée est simple. Concevoir un plugin jquery, qui permette de gérer la lecture de fichier audio par le biais des balises <audio />
+L'idée est simple. Concevoir un plugin jquery, qui permette de gérer la lecture de fichier audio par le biais des balises html AUDIO.
+Il suffit pour cela d'inclure la library jquery ainsi que les scripts et d'ajouter sa propre feuille de style afin d'obtenir le design du lecteur désiré.
 
 Utilisation:
 -----------------
@@ -50,4 +51,7 @@ Appel du plugin:
 				$("#lecteur-audio").audio();
 			});
 		})(jQuery);
-		
+
+Contribution:
+
+Ce plugin est encore en développement. Je vous invite donc à contribuer, aussi bien pour rajouter vos propres skins, comme fonctionnalité de votre choix.
