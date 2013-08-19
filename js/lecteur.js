@@ -1,19 +1,41 @@
 (function($) {
 
-	/* Identification des boutons actions */
+	/* List of options for the template */
    	var options = {
-		    play      	: 	'#btn-play',      
-		    pause     	: 	'#btn-pause',                  
-		    stop 		: 	'#btn-stop',                
-		    next   		: 	'#btn-next',             
-		    back     	: 	'#btn-back',
-            pochette    :   'img.pochette', 
-            autoplay    :   false, 
+            namelecteur :   '#lecteur-audio',       //name of player (id ou class)
+		    play      	: 	'#btn-play',        //name of button play (id ou class)
+		    pause     	: 	'#btn-pause',       //name of button pause (id ou class)
+		    stop 		: 	'#btn-stop',        //name of button stop (id ou class)
+		    next   		: 	'#btn-next',          //name of button next (id ou class)
+		    back     	: 	'#btn-back',         //name of button back (id ou class)
+            pochette    :   '.pochette',     //name of list of pochette (id ou class)
+            autoplay    :   false,              // autoplay true or false
 	}
+
+    /* template for the player */
+    var html= '<div id="controller">\
+                    <img id="photo-pochette" src="http://dummyimage.com/75x75/" />\
+                    <span id="titre_album"></span>\
+                    <span id="song"></span>\
+                    <br />\
+                    <br />\
+                    <div class="progressbar">\
+                    </div>\
+                    <div id="controller-player">\
+                        <div class="cursor-pointer" id="btn-back"></div>\
+                        <div class="cursor-pointer" id="btn-play"></div>\
+                        <div class="cursor-pointer" id="btn-pause"></div>\
+                        <div class="cursor-pointer" id="btn-stop"></div>\
+                        <div class="cursor-pointer" id="btn-next"></div>\
+                    </div>\
+                </div>';
+
 	$.audio = function(el,options) {
 
 	}
+
 	$.audio.options = options;
+
     $.fn.audio = function(opts) {
     	var current = 0;
     	var maxcurrent = 0;
@@ -24,7 +46,8 @@
             $(options.pochette).hide();
             init();
         });
-        lecteurarret = function()
+
+        playerStop = function()
         {
             inittimeline();
         	$(options.play).show();
@@ -32,10 +55,10 @@
         	document.getElementById(audio[current]).pause();
   			document.getElementById(audio[current]).currentTime=0;
         }
-        lecteuron = function()
+        playerPlay = function()
         {
             inittimeline();
-            changepochette();
+            playerChangeWallet();
         	$(options.play).hide();
         	$(options.pause).show();
         	document.getElementById(audio[current]).play();
@@ -44,11 +67,16 @@
         updateProgress = function()
         {
             var player=document.getElementById(audio[current]);
-            var duration = player.duration;    // Durée totale
-            var time     = player.currentTime; // Temps écoulé
+            var duration = player.duration; 
+            var time     = player.currentTime;
             var fraction = time / duration;
             percent  = Math.ceil(fraction * 100);
-            $( ".avancement" ).slider({
+            if(percent==100)
+            {
+                $(options.play).show();
+                $(options.pause).hide();
+            }
+            $( ".progressbar" ).slider({
                     orientation: "horizontal",
                     range: "min",
                     max: 100,
@@ -57,20 +85,20 @@
         }
         function inittimeline()
         {
-            $( ".avancement" ).slider({
+            $( ".progressbar" ).slider({
                     orientation: "horizontal",
                     range: "min",
                     max: 100,
                     value: 0,
             });
         }
-        lecteurpause = function()
+        playerPause = function()
         {
         	$(options.play).show();
         	$(options.pause).hide();
         	document.getElementById(audio[current]).pause();
         }
-        avancementlecteur = function()
+        playerGoNext = function()
         {
             document.getElementById(audio[current]).pause();
         	document.getElementById(audio[current]).currentTime=0;
@@ -83,14 +111,14 @@
             {
                 $(options.play).hide();
                 $(options.pause).show();
-                lecteuron();
+                playerPlay();
             }else{
                 $(options.play).show();
                 $(options.pause).hide();
-                changepochette();
+                playerChangeWallet();
             }
         }
-        reculerlecteur = function()
+        playerGoBack = function()
         {
             document.getElementById(audio[current]).pause();
         	document.getElementById(audio[current]).currentTime=0;
@@ -103,15 +131,15 @@
             {
                 $(options.play).hide();
                 $(options.pause).show();
-                lecteuron();
+                playerPlay();
             }else{
                 $(options.play).show();
                 $(options.pause).hide();
-                changepochette();
+                playerChangeWallet();
             }
 
         }
-        function changepochette()
+        function playerChangeWallet()
         {
             $('#photo-pochette').attr('src',$("."+audio[current]).attr('src'));
             $('#titre_album').html($("."+audio[current]).attr('alt'));
@@ -124,32 +152,33 @@
 	        	audio[maxcurrent]=$(this).attr('id');
 	        	maxcurrent++;
         	});
-            changepochette();
+            $(options.namelecteur).after(html);
+            playerChangeWallet();
             inittimeline();
         	$(options.play).on('click',function(e)
         	{
         		e.preventDefault();
-        		lecteuron();
+        		playerPlay();
         	});
         	$(options.pause).on('click',function(e)
         	{
         		e.preventDefault();
-        		lecteurpause();
+        		playerPause();
         	});
         	$(options.stop).on('click',function(e)
         	{
         		e.preventDefault();
-        		lecteurarret();
+        		playerStop();
         	});
         	$(options.next).on('click',function(e)
         	{
         		e.preventDefault();
-        		avancementlecteur();
+        		playerGoNext();
         	});
         	$(options.back).on('click',function(e)
         	{
         		e.preventDefault();
-        		reculerlecteur();
+        		playerGoBack();
         	});
         }
 
