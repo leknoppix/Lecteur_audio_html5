@@ -1,4 +1,4 @@
-Lecteur audio HTML5 (player audio HTML5)
+Lecteur audio multipiste HTML5 (player audio multitrack HTML5)
 ===================
 
 
@@ -9,7 +9,7 @@ Par l'émergeance des technologies et notament avec l'implémentation de l'HTML 
 
 Dans cette version 5 de l'html, les balises < audio > et < video > ont été incluses et permettent de remplacer des logiciels tiers.
 
-Ces dernières balises HTML, couplé à des library javascript (jquery, mootool...) permettent de controler la lecture, le changement de son, l'arrêt.... En fait, par le biais de simple langage basique web, les sons et videos peuvent être controllé.
+Ces dernières balises HTML, couplé à des library javascript (jquery, mootool...) permettent de controler la lecture, le changement de volume du son, l'arrêt, le changement de piste .... En fait, par le biais de simple langage basique web, les sons et videos peuvent être controllé.
 
 Ce projet permet donc d'héberger vos musiques et d'utiliser votre propre lecteur audio html5.
 
