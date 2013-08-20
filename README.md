@@ -7,13 +7,11 @@ En savoir plus sur le projet:
 
 Par l'émergeance des technologies et notament avec l'implémentation de l'HTML 5 dans les navigateurs web, de nombreuses balises et fonctionnalités ont été conçu. 
 
-Pendant longtemps, les lecteurs audios et même videos étaient le plus souvent proposé par du Flash (logiciel payant et proposé par Adobe). Or, dans cette version 5 de l'html, les balises < audio > et < video > ont été incluses et permettent de remplacer des logiciels tiers.
+Dans cette version 5 de l'html, les balises < audio > et < video > ont été incluses et permettent de remplacer des logiciels tiers.
 
 Ces dernières balises HTML, couplé à des library javascript (jquery, mootool...) permettent de controler la lecture, le changement de son, l'arrêt.... En fait, par le biais de simple langage basique web, les sons et videos peuvent être controllé.
 
-Ayant fait pas mal de recherche sur internet, je n'ai pas trouvé de solution qui corresponde à 100% à mon désir. Je cherchais un système à héberger soit-même (auto-heberger), simple et surtout 100% personnalisable. J'attend par là que les musiques ou videos doivent être sur la même machine que les fichiers appelant. 
-
-Je me suis donc consacré plus précisément à la musique ou extrait sonore puisque héberger des videos ou des sons n'est pas la même chose. La bande passante demandé par de la vidéo est plus lourde que celle nécessaire pour du son.
+Ce projet permet donc d'héberger vos musiques et d'utiliser votre propre lecteur audio html5.
 
 L'idée est simple. Concevoir un plugin jquery, qui permette de gérer la lecture de fichier audio par le biais des balises html AUDIO.
 Il suffit pour cela d'inclure la library jquery ainsi que le plugin audio() et d'ajouter sa propre feuille de style afin d'obtenir le design du lecteur désiré.
@@ -37,6 +35,14 @@ Structure HTML:
 			</audio>
 			<img src="Lauren_Piper_-_Ryan.jpg" alt="Titre de l'album 2" title="Titre du son 2" class="pochette audio2" />
 		</div>
+		<!--[if lt IE 9]>
+			  <object ....... >
+			    .........
+			    .........
+			    .........
+			    .........
+			  </object>
+		<![endif]-->
 
 Appel du plugin:
 
@@ -46,6 +52,11 @@ Appel du plugin:
 				$("#lecteur-audio").audio();
 			});
 		})(jQuery);
+
+Personnalisation et skin:
+
+Ce plugin a été conçu pour évoluer dans le temps. Vu que la personnalisation de l'affichage provient d'une feuille de style, laissez libre court à votre imagination.
+
 
 Contribution:
 
