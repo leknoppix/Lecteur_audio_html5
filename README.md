@@ -1,25 +1,26 @@
-Lecteur audio multipiste HTML5 (player audio multitrack HTML5)
+Player audio multitrack HTML5 / Lecteur audio multipiste HTML5
 ===================
 
 
-En savoir plus sur le projet:
+
+About the project:
 -------------------
 
-Par l'émergeance des technologies et notament avec l'implémentation de l'HTML 5 dans les navigateurs web, de nombreuses balises et fonctionnalités ont été conçu. 
+During the rise of technology and with the implementation of the HTML 5 in web browsers, many tags and features were designed.
 
-Dans cette version 5 de l'html, les balises < audio > et < video > ont été incluses et permettent de remplacer des logiciels tiers.
+In this version, the < audio > and < video > were included and used to replace third-party software.
 
-Ces dernières balises HTML, couplé à des library javascript (jquery, mootool...) permettent de controler la lecture, le changement de volume du son, l'arrêt, le changement de piste .... En fait, par le biais de simple langage basique web, les sons et videos peuvent être controllé.
+These latest HTML tags, coupled with javascript library (jQuery, mootool ...) allow to control playback, the volume change sound, stop, change track .... In fact, through simple basic web language, sounds and videos can be controlled.
 
-Ce projet permet donc d'héberger vos musiques et d'utiliser votre propre lecteur audio html5.
+This project allows you to host your music and use your own html5 audio player.
 
-L'idée est simple. Concevoir un plugin jquery, qui permette de gérer la lecture de fichier audio par le biais des balises html AUDIO.
-Il suffit pour cela d'inclure la library jquery ainsi que le plugin audio() et d'ajouter sa propre feuille de style afin d'obtenir le design du lecteur désiré.
+The idea is simple. Designing a jquery plugin, that allows to manage audio file playback through html tags AUDIO.
+Simply include the jQuery library and the plugin audio() and add its own CSS to get the design of the desired drive.
 
-Utilisation:
+How to use:
 -------------------
 
-Structure HTML:
+HTML architecture:
 
 		<div id="lecteur-audio">
 			<audio class="audio" id="audio1" preload="auto">
@@ -27,13 +28,13 @@ Structure HTML:
 				<source src="DJ_Spooky_-_Check_Your_Math.ogg" type="audio/ogg">
 				<source src="DJ_Spooky_-_Check_Your_Math.wav" type="audio/wav">
 			</audio>
-			<img src="DJ_Spooky_-_Check_Your_Math.jpg" alt="Titre de l'album" title="Titre du son" class="pochette audio1" />
+			<img src="DJ_Spooky_-_Check_Your_Math.jpg" alt="Title of album" title="Music song" class="pochette audio1" />
 			<audio class="audio" id="audio2" preload="auto">
 				<source src="Lauren_Piper_-_Ryan.mp3" type="audio/mpeg">
 				<source src="Lauren_Piper_-_Ryan.ogg" type="audio/ogg">
 				<source src="Lauren_Piper_-_Ryan.wav" type="audio/wav">
 			</audio>
-			<img src="Lauren_Piper_-_Ryan.jpg" alt="Titre de l'album 2" title="Titre du son 2" class="pochette audio2" />
+			<img src="Lauren_Piper_-_Ryan.jpg" alt="Title of album 2" title="Music song 2" class="pochette audio2" />
 		</div>
 		<!--[if lt IE 9]>
 			  <object ....... >
@@ -44,7 +45,7 @@ Structure HTML:
 			  </object>
 		<![endif]-->
 
-Appel du plugin:
+Call Plugin:
 
 		(function($) {
 		//liste de mes fonctions liés à jquery
@@ -53,11 +54,10 @@ Appel du plugin:
 			});
 		})(jQuery);
 
-Personnalisation et skin:
+Customization and skin:
 
-Ce plugin a été conçu pour évoluer dans le temps. Vu que la personnalisation de l'affichage provient d'une feuille de style, laissez libre court à votre imagination.
-
+This plugin was designed to evolve over time. The layout customization is made with CSS, Feel free to experiment your imagination !
 
 Contribution:
 
-Ce plugin est encore en développement. Je vous invite donc à contribuer, aussi bien pour rajouter vos propres skins, comme fonctionnalité de votre choix.
+This plugin is still in development. I invite you to contribute as well to add your own skins as functionality of your choice.
