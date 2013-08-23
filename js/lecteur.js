@@ -21,6 +21,8 @@
                     <br />\
                     <div class="progressbar">\
                     </div>\
+                    <br />\
+                    <br />\
                     <div id="controller-player">\
                         <div class="cursor-pointer" id="btn-back"></div>\
                         <div class="cursor-pointer" id="btn-play"></div>\
@@ -81,6 +83,10 @@
                     range: "min",
                     max: 100,
                     value: percent,
+                    stop:function(e,ui) {
+                        player.currentTime = ui.value;
+                        updateProgress();
+                    }
             });
         }
         function inittimeline()
@@ -89,7 +95,7 @@
                     orientation: "horizontal",
                     range: "min",
                     max: 100,
-                    value: 0,
+                    value: 0
             });
         }
         playerPause = function()
